@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Self } from '@angular/core';
+import { RoomsService } from '../rooms/services/rooms.service';
 
 @Component({
   selector: 'hotelinv-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  providers: [RoomsService]
 })
-export class EmployeeComponent {
-  
+export class EmployeeComponent implements OnInit{
+
   empName: string = 'John';
 
-  constuctor(): void{ }
+  constructor( private roomsService: RoomsService) {
+
+   }
 
   ngOnInit(): void {
 

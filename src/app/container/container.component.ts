@@ -1,5 +1,6 @@
-import { AfterContentInit, Component, ContentChild, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Host, OnInit } from '@angular/core';
 import { EmployeeComponent } from '../employee/employee.component'; 
+import { RoomsService } from '../rooms/services/rooms.service';
 
 @Component({
   selector: 'hotelinv-container',
@@ -10,7 +11,7 @@ export class ContainerComponent implements OnInit, AfterContentInit{
 
   @ContentChild(EmployeeComponent) employee!: EmployeeComponent;
 
-  constuctor(): void{ }
+  constructor(@Host()private roomsService: RoomsService) { }
 
   ngOnInit(): void {
 

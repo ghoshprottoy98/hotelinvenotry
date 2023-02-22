@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room } from "./rooms"; 
 import { Roomlist } from "./rooms"; 
+import { RoomsService } from './services/rooms.service';
 
 @Component({
   selector: 'hotelinv-rooms',
@@ -67,9 +68,17 @@ export class RoomsComponent implements OnInit {
 
   @ViewChildren(HeaderComponent) headerChildrenComponent!: QueryList<HeaderComponent>;
 
-  constuctor(): void {}
+  //roomService = new RoomsService();
 
-  ngOnInit(): void{}
+  constructor(private roomsService: RoomsService) {
+
+  }
+
+  ngOnInit(): void{
+
+    this.roomlist = this.roomsService.getRooms();
+
+  }
 
 
   ngAfterViewInit(){

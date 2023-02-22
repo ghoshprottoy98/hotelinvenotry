@@ -18,7 +18,7 @@ export class RoomsListComponent implements OnInit{
   @Output() selectedRoom= new EventEmitter<Roomlist>();
 
 
-  constuctor(): void {}
+  constructor() {}
 
   ngOnInit(): void{}
 
