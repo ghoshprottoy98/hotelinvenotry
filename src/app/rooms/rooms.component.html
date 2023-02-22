@@ -1,4 +1,5 @@
 <h1> Welcome to {{hotelname}} </h1>
+
 <div [hidden]="hideRooms">
     Number Of Rooms:
 <div [ngStyle]="{'color': rooms.availableRooms ? 'green' : 'red'}"
@@ -7,36 +8,17 @@
 </div>
 </div>
 
+<div *ngIf="selectedRoom">
+    {{ selectedRoom | json}}
+</div>
+
+<div>
+    <button (click)="addRoom()">Add Room</button> 
+</div>
 
 <div *ngIf="rooms.availableRooms >0">
-    Rooms List
-   
-    <table class="table">
-        <tr>
-            <th>Index </th>
-            <th>Even/Odd </th>
-            <th>Room Number </th>
-            <th>Room Type </th>
-            <th>Room Price </th>
-            <th>Room Amenities </th>
-            <th>Checkin time </th>
-            <th>Rating </th>
-        </tr>
-        
-        <tr 
-        [ngClass]="e ? 'even' : 'odd' "
-        *ngFor="let room of roomlist | slice: 0:3; let e = even, let o= odd, let i= index"
-        > 
-            <td>{{i | percent  }}</td>
-            <td>{{e ? "Even" : "Odd" }}</td>
-            <td>{{room.roomNumber }}</td>
-            <td>{{room.roomType }}</td>
-            <td>{{room.price | currency : 'BDT'}}</td>
-            <td>{{room.amenities | titlecase }}</td>
-            <td>{{room.checkinTime | date: 'dd:MM:yyyy' }}</td>
-            <td>{{room.rating | number: '1.1-3' : 'en-us'}}</td>
-        </tr>
- </table>
+   <hotelinv-rooms-list [rooms]="roomlist" [title]="'Room List'">
+    (selectedRoom)="selectRoom($event)"</hotelinv-rooms-list>
 </div>
 
 <button (click)="toggle()">Toggle</button> 

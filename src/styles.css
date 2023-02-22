@@ -1,1 +1,11 @@
-/*  @import '~bootstrap/dist/css/bootstrap.rtl.min.css'; */
+ @import '~bootstrap/dist/css/bootstrap.rtl.min.css'; 
+
+.even{
+    background-color: steelblue;
+    color: white;
+}
+
+.odd{
+    background-color: tomato;
+    color: white;
+}
