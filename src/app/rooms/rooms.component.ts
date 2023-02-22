@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Room } from "./rooms"; 
 import { Roomlist } from "./rooms"; 
 
@@ -60,13 +61,24 @@ export class RoomsComponent implements OnInit {
   rating: 3.5,
 },
 
-]
+];
+
+  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+
+  @ViewChildren(HeaderComponent) headerChildrenComponent!: QueryList<HeaderComponent>;
 
   constuctor(): void {}
 
   ngOnInit(): void{}
 
-  toggle() {
+
+  ngAfterViewInit(){
+    this.headerComponent.title = "Rooms View";
+
+    this.headerChildrenComponent.last.title="Last Title";
+    }
+
+  toggle(): void {
     this.hideRooms = !this.hideRooms;
   }
 
@@ -92,4 +104,7 @@ export class RoomsComponent implements OnInit {
 
   this.roomlist.push(room);
 }
+
+
+
 }
