@@ -7,6 +7,9 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
+import { LoginComponent } from './login/login.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AppNavComponent } from './app-nav/app-nav.component';
     HeaderComponent,
     ContainerComponent,
     EmployeeComponent,
-    AppNavComponent
+    AppNavComponent,
+    LoginComponent,
+    NotfoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
