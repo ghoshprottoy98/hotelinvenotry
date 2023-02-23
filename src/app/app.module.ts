@@ -25,6 +25,7 @@ import { HeaderModule } from './header/header.module';
 import { RouteConfigToken } from './services/routeConfig.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { GlobalErrorHandler } from './services/errorhandler.service';
+import { CommentComponent } from './comment/comment.component';
 
 
 function initFactory(initService: InitService){
@@ -41,6 +42,7 @@ function initFactory(initService: InitService){
     NotfoundComponent,
     HoverDirective,
     EmailvalidatorDirective,
+    CommentComponent,
   ],
 
   imports: [
