@@ -1,6 +1,11 @@
-import { AfterViewInit, Component,  ElementRef,  OnInit,  Optional,  ViewChild, ViewContainerRef } from '@angular/core';
+import {  Component,  ElementRef,  OnInit,  Optional,  ViewChild, ViewContainerRef } from '@angular/core';
 import { LoggerService } from './logger.service';
-import { RoomsComponent } from './rooms/rooms.component';
+import {localStorageToken} from './localstorage.token';
+import { InitService } from './init.service';
+import { ConfigService } from './services/config.service';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'hotelinv-root',
@@ -11,19 +16,36 @@ import { RoomsComponent } from './rooms/rooms.component';
 })
 export class AppComponent implements OnInit {
   
-  title = 'hotelinvenotry';
-
-  @ViewChild('name', {static: true} ) name!: ElementRef;
-
-  constructor(@Optional () private loggerService: LoggerService,)
-  {
-
+  constructor(@Optional() private loggerService: LoggerService,
+  
+  @Inject(localStorageToken) private localStorage : any, 
+  private initService : InitService ,
+  private config: ConfigService,
+  private router:Router
+  ){
+    console.log(initService.config);
   }
 
   ngOnInit(){
-    this.loggerService.log('AppComponent.ngOnInit()');
-    this.name.nativeElement.innerText = "Hilton Hotel";
+
+    this.router.events.pipe(
+      filter(event=>event instanceof NavigationStart)
+    ).subscribe(e=>console.log("Navigation Started"));
+
+    this.router.events.pipe(
+      filter(event=>event instanceof NavigationEnd)
+    ).subscribe(e=>console.log("Navigation Completed"));
+
+    this.loggerService?.log('AppComponent.ngOnInit()');
+    this.name.nativeElement.innerText = "Hilton Hotels";
+    this.localStorage.setItem('name', 'Hilton');
   }
+  
+  }
+
+
+  title = 'hotelinventory';
+  role='Admin';
 
  // @ViewChild('User', {read: ViewContainerRef} ) vcr!: ViewContainerRef;
 
@@ -33,4 +55,5 @@ export class AppComponent implements OnInit {
  // }
 
 
+  @ViewChild('name',{static:true}) name!:ElementRef;
 }
