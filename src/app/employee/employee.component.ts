@@ -5,15 +5,10 @@ import { RoomsService } from '../rooms/services/rooms.service';
   selector: 'hotelinv-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  providers: [RoomsService]
 })
 export class EmployeeComponent implements OnInit{
 
-  empName: string = 'John';
-
-  constructor( private roomsService: RoomsService) {
-
-   }
+  constructor( ) {}
 
   ngOnInit(): void {
 

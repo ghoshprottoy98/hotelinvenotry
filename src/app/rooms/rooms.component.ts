@@ -1,6 +1,6 @@
 import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderComponent } from '../app-nav/header.component';
 import { Room } from "./rooms"; 
 import { Roomlist } from "./rooms"; 
 import { RoomsService } from './services/rooms.service';
