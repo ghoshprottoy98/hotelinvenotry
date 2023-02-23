@@ -6,9 +6,14 @@ import { RoomsService } from '../rooms/services/rooms.service';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
 })
-export class EmployeeComponent implements OnInit{
+export class EmployeeComponent implements OnInit {
 
-  constructor( ) {}
+  empName :  string = "John";
+
+  constructor(private roomsService: RoomsService) {
+
+   }
+
 
   ngOnInit(): void {
 
