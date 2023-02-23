@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'hotelinv-notfound',
   templateUrl: './notfound.component.html',
   styleUrls: ['./notfound.component.css']
 })
-export class NotfoundComponent {
+export class NotfoundComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
+
