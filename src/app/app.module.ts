@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { AppNavComponent } from './app-nav/app-nav.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EmployeeComponent } from './employee/employee.component';
     RoomsListComponent,
     HeaderComponent,
     ContainerComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    AppNavComponent
   ],
   imports: [
     BrowserModule,
