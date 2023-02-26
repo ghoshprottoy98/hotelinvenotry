@@ -6,7 +6,7 @@ import { RoomsService } from '../rooms/services/rooms.service';
 @Component({
   selector: 'hotelinv-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.css']
+  styleUrls: ['./container.component.css'],
   providers: [RoomsService]
 })
 export class ContainerComponent implements OnInit, AfterContentInit {

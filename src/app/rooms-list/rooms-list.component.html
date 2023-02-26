@@ -18,9 +18,9 @@
             <td [ngClass]="{even:e,odd:o}">{{e? "Even": "Odd"}}</td>
             <td>{{room.roomNumber}}</td>
             <td>{{room.roomType}}</td>
-            <td>{{room.price | currency: 'EUR'}}</td>
+            <td>{{room.price | currency: 'BDT'}}</td>
             <td>{{room.amenities | titlecase}}</td>
-            <td>{{room.checkInTime | date : 'short'}}</td>
+            <td>{{room.checkinTime | date : 'short'}}</td>
             <td>{{room.rating | number : '1.3-5'}}</td>
             <td>
                 <!-- <button 

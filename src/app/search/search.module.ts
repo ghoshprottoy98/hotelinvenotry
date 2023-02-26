@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './search.component';
 
 
 
@@ -12,4 +12,4 @@ import { SearchComponent } from './search/search.component';
     CommonModule
   ]
 })
-export class SearchModule { }
+export class SearchModule{ }

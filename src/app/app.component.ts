@@ -1,4 +1,4 @@
-import {  Component,  ElementRef,  OnInit,  Optional,  ViewChild, ViewContainerRef } from '@angular/core';
+import {  Component,  ElementRef,  Inject, OnInit,  Optional,  ViewChild, ViewContainerRef } from '@angular/core';
 import { LoggerService } from './logger.service';
 import {localStorageToken} from './localstorage.token';
 import { InitService } from './init.service';
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     console.log(initService.config);
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
 
     this.router.events.pipe(
       filter(event=>event instanceof NavigationStart)
@@ -41,9 +41,9 @@ export class AppComponent implements OnInit {
     this.localStorage.setItem('name', 'Hilton');
   }
   
-  }
-
-
+  
+  
+  
   title = 'hotelinventory';
   role='Admin';
 
@@ -56,4 +56,5 @@ export class AppComponent implements OnInit {
 
 
   @ViewChild('name',{static:true}) name!:ElementRef;
+
 }

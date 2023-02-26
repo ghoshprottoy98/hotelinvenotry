@@ -1,27 +1,37 @@
-<!--<h1> Welcome to {{hotelname}} </h1>-->
+<h1> Welcome to {{hotelName}} </h1> 
 
-<div [hidden]="hideRooms">
+<!--<div [hidden]="hideRooms">
     Number Of Rooms:
-<div [ngStyle]="{'color': rooms.availableRooms ? 'green' : 'red'}"
+<div [ngStyle]="{'color': rooms.availableRooms ? 'green' : 'red'}"-->
 
-  [innerText]="numberOfRooms"> 
-</div>
-</div>
+<router-outlet></router-outlet>
+
 
 <div *ngIf="selectedRoom">
     {{ selectedRoom | json}}
 </div>
 
 <div>
-    <button (click)="addRoom()">Add Room</button> 
+    <button class="btn btn-danger" (click)="addRoom()">Add Room</button> 
 </div>
 
-<div *ngIf="rooms.availableRooms >0">
+<!--<div *ngIf="rooms.availableRooms >0">
    <hotelinv-rooms-list [rooms]="roomlist" [title]="'Room List'">
     (selectedRoom)="selectRoom($event)"</hotelinv-rooms-list>
 </div>
 
-<button (click)="toggle()">Toggle</button> 
+<button (click)="toggle()">Toggle</button> -->
 
+{{priceFilter | json}}
 
+<div>
+    <input type="number" class="form-control" placeholder="Price"  [formControl]="priceFilter">
+</div>
+
+<div *ngIf="rooms$ | async as rooms">
+   <hotelinv-rooms-list [rooms] ="rooms" [title]="title"
+   (selectedRoom)="selectRoom($event)"
+   ></hotelinv-rooms-list>
+  
+</div>
 

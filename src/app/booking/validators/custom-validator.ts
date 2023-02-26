@@ -30,8 +30,8 @@ export class CustomValidator {
 
 
      static ValidateDate(control: AbstractControl){
-        const checkInDate :any = new Date(control.get('checkInDate')?.value);
-        const checkOutDate : any= new Date(control.get('checkOutDate')?.value);
+        const checkInDate :any = new Date(control.get('checkinDate')?.value);
+        const checkOutDate : any= new Date(control.get('checkoutDate')?.value);
         const diffTime = checkOutDate - checkInDate;
         const diffDays = Math.ceil(diffTime/1000*60*60*24);
         console.log(diffTime);
@@ -39,7 +39,7 @@ export class CustomValidator {
 
         if(diffTime<=0){
 
-            control.get('chekOutDate')?.setErrors({
+            control.get('checkoutDate')?.setErrors({
                 invalidDate:true
             });
             return{
